@@ -1,10 +1,10 @@
-amwa_id: BCP-TEMPLATE
-url: https://specs.amwa.tv/bcp-template
-name: AMWA NMOS Best Common Practice Template
-status: Continuing
-repo_name: bcp-template
-alt_repo_name: nmos-bcp-template
-repo_url: https://github.com/AMWA-TV/bcp-template
+amwa_id: BCP-007-02
+url: https://specs.amwa.tv/bcp-007-02
+name: NMOS Support for IPMX/USB
+status: Work In Progress
+repo_name: bcp-007-02
+alt_repo_name: nmos-bcp-ipmx-usb
+repo_url: https://github.com/AMWA-TV/bcp-007-02
 releases:
 default_branch: v1.0-dev
 show_in_index: false
