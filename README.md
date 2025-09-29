@@ -9,18 +9,17 @@ This repository holds the source for this Specification, part of the family of [
 
 ### What does it do?
 
-- x
+- Establishes a standardized mechanism for NMOS Senders and Receivers to declare support for USB over IP transport streams using IPMX/USB (VSF TR-10-14).
 
 ### Why does it matter?
 
-- x
-- x
+- An NMOS Controller can verify that any Receiver is compliant with a Sender producing USB over IP transport streams, as only IPMX/USB-compliant Receivers can process such content.
+- A standardized framework enables Controllers to systematically verify and/or enforce compliance.
 
 ### How does it work?
 
-- x
-- x
-- x
+- Documents how IPMX/USB capabilities are announced by both Senders and Receivers.
+- Outlines the requirements for Senders, Receivers, and Controllers regarding the IPMX/USB feature.
 
 <!-- INTRO-END -->
 

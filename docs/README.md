@@ -14,15 +14,10 @@ This list will be rendered at "https://specs.amwa.tv/<spec>/<version>/docs/"
 - The display name and filename don't need to match (see IS-04 for examples of this).
 - All documents that need rendering must be listed.
 
-See https://github.com/AMWA-TV/nmos-template/docs/README.md for an example of the syntax
+See https://github.com/AMWA-TV/bcp-template/docs/README.md for an example of the syntax
 
 -->
 
-### Introduction
+### Content
 
-- [Overview](Overview.md)
-- [Style Guide](Style%20Guide.md)
-
-### Miscellaneous
-
-- [Further Info](Further%20Info.md)
+- [NMOS With IPMX/USB](NMOS-With-IPMX-USB.md)
