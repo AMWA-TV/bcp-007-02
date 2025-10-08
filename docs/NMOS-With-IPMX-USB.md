@@ -115,7 +115,7 @@ Using this grouping convention, a Controller can determine how many USB Senders 
 
 ## USB IS-05 Senders and Receivers
 
-Connection Management using IS-05 proceeds in the same manner as for any other transport, using USB-specific transport parameters defined in [USB Sender transport parameters](./APIs/schemas/sender_transport_params_usb.json) and [USB Receiver transport parameters](./APIs/schemas/receiver_transport_params_usb.json). The `source_ip` and `source_port` transport parameters MUST be present in the IS-05 `active`, `staged`, and `constraints` endpoints of a USB Sender. The `source_ip`, `source_port` and `interface_ip` transport parameters MUST be present in the IS-05 `active`, `staged`, and `constraints` endpoints of a USB Receiver.
+Connection Management using IS-05 proceeds in the same manner as for any other transport, using USB-specific transport parameters defined in [USB Sender transport parameters](../APIs/schemas/sender_transport_params_usb.json) and [USB Receiver transport parameters](../APIs/schemas/receiver_transport_params_usb.json). The `source_ip` and `source_port` transport parameters MUST be present in the IS-05 `active`, `staged`, and `constraints` endpoints of a USB Sender. The `source_ip`, `source_port` and `interface_ip` transport parameters MUST be present in the IS-05 `active`, `staged`, and `constraints` endpoints of a USB Receiver.
 
 Redundancy MUST be implemented using MPTCP. At most two sets of transport parameters MUST be specified for Senders and Receivers supporting redundancy with the `urn:x-nmos:transport:usb` transport. The parameters for the first leg MUST appear as entry 0 in the transport parameters array; those for the second leg MUST appear as entry 1.
 
