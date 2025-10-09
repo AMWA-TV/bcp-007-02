@@ -45,6 +45,8 @@ A `usb_device` object is defined as:
 ```
 A USB Source MAY include a `usb_devices` attribute, which is an array of `usb_device` objects. This attribute describes the USB devices accessible to a Receiver via the USB data stream. Inclusion of this information is optional.
 
+The `ipmx_bus_id` attribute is represented as an array of 64 bytes as in the messages defined by [TR-10-14][]. A Controller MAY present this attribute to a User as a string made of the UTF-8 character codes stored in the `ipmx_bus_id` array. The `ipmx_bus_id` array stores the original bytes of the messages to prevent issues arising from string representations that differ from the real values within the IPMX/USB stream.
+
 Examples of Source resources are provided in [Examples](./examples).
 
 ### Flows
@@ -63,7 +65,7 @@ The Sender MUST express its limitations or preferences regarding the USB streams
 
 The `constraint_sets` parameter within the `caps` object MUST be used to describe combinations of parameters the Sender can support, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers.
 
-A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB](https://www.usb.org) for class code definitions.
+A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
 A USB Sender operates as a TCP/IP server and accepts connections from USB Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.
 
@@ -95,7 +97,7 @@ The Receiver MUST express its limitations or preferences regarding the USB strea
 
 The `constraint_sets` parameter within the `caps` object MUST be used to describe combinations of parameters that the Receiver can support, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers.
 
-A USB Receiver SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See [USB](https://www.usb.org) for class code definitions.
+A USB Receiver SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
 A USB Receiver operates as a TCP/IP client. A USB Sender accepts connections from Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.
 
@@ -164,6 +166,9 @@ Unless constrained by [IS-11][], a Sender MAY produce any USB stream that is com
 A Controller SHOULD use a Sender's `urn:x-nmos:cap:transport:usb_class` capability to verify  Receivers' compatibility with the Sender and, if necessary, constrain the Sender to ensure compliance with the Receivers. A Sender indicates its support for being constrained on this capability by enumerating `urn:x-nmos:cap:transport:usb_class` in its [IS-11][] `constraints/supported` endpoint.
 
 > Note: There is no `usb_class` Sender attribute, as might typically be expected, because a USB stream is composed of multiple sub-streams, each of which can be associated with multiple USB classes. The set of classes present in a given USB stream often changes dynamically.
+
+A Controller SHOULD NOT use the optional `usb_devices` attribute of a USB Source to establish compatibility for the `urn:x-nmos:cap:transport:usb_class` capability but it MAY use it to provide feedback to a User about the USB devices that would be ignored by a Receiver.
+
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [IS-11]: https://specs.amwa.tv/is-11/ "AMWA IS-11 NMOS Stream Compatibility Management Specification"
