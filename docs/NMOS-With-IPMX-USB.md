@@ -107,9 +107,11 @@ In some scenarios, a group of USB Receivers controls the USB sub-system of a Dev
 
 Receivers MUST declare a device-scope tag "urn:x-nmos:tag:grouphint/v1.0" in their `tags` attribute.
 
-The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as follows: "<group-name>:<role-in-group> <role-index>".
+The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as follows: "\<group-name\>:\<role-in-group\> \<role-index\>".
 
-All USB Receivers in the group MUST share the same `<group-name>`, and each MUST declare a unique `<role-index>` within the `DATA` role.
+All USB Receivers in the group MUST share the same `<group-name>`, the `role-in-group` MUST be `DATA` and each Receiver MUST declare a unique `role-index` integer within the `DATA` role.
+
+> Example: First Receiver in group is "USB 0: DATA 0", second Receiver in group is "USB 0: DATA 1", etc.
 
 Using this grouping convention, a Controller can determine how many USB Senders simultaneously control the USB sub-system of a Device. 
 
@@ -119,7 +121,7 @@ Connection Management using IS-05 proceeds in the same manner as for any other t
 
 Redundancy MUST be implemented using MPTCP. At most two sets of transport parameters MUST be specified for Senders and Receivers supporting redundancy with the `urn:x-nmos:transport:usb` transport. The parameters for the first leg MUST appear as entry 0 in the transport parameters array; those for the second leg MUST appear as entry 1.
 
-For security reasons, USB streams are typically encrypted using the IPMX [TR-10-5][] Privacy Encryption Protocol. Additional `ext_privacy_*` extended transport parameters, as normatively defined in [TR-10-13][], are present in the IS-05 `active`, `staged`, and `constraints` endpoints of USB Senders and Receivers. 
+For security reasons, USB streams are typically encrypted using the IPMX [TR-10-13][] Privacy Encryption Protocol. Additional `ext_privacy_*` extended transport parameters, as normatively defined in [TR-10-13][], are present in the IS-05 `active`, `staged`, and `constraints` endpoints of USB Senders and Receivers. 
 Refer to the [BCP-005-03][] "NMOS With Privacy Encryption" document for more details.
 
 ### Receivers
