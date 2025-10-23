@@ -140,7 +140,7 @@ A Controller MAY connect a USB Receiver that does not support redundancy to eith
 |---------------|-------------|
 | `interface_ip`| MUST be set to the IP address of the Receiver’s network interface. The Receiver lists available interface addresses in the Constraints endpoint; the special value `auto` lets the Receiver choose an interface automatically. |
 | `source_ip`   | MUST be set to the IP address of the TCP server (Sender) that delivers the USB packets. A `null` value indicates the address has not yet been configured. |
-| `source_port` | MUST tbe set to the port of the TCP server (Sender) that delivers the USB packets. Accepts either an integer within the range 0–65535, the string "auto", or `null`. If set to "auto", the default is 5004. A `null` value indicates the port has not yet been configured. |
+| `source_port` | MUST be set to the port of the TCP server (Sender) that delivers the USB packets. Accepts either an integer within the range 0–65535, the string "auto", or `null`. If set to "auto", the default is 5004. A `null` value indicates the port has not yet been configured. |
 | `ext_*`       | Vendor‑specific, future AMWA extension parameters, or `ext_privacy_*`  transport parameters specified in [TR-10-14][] |
 
 
