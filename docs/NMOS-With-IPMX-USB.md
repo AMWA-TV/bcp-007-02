@@ -162,7 +162,7 @@ Unless constrained by [IS-11][], a Sender MAY produce any USB stream that is com
 
 
 ## Controllers
-A Controller MAY use IS-11 active constraints and the Sender's `urn:x-nmos:cap:transport:usb_class` capability to constrain the Sender to ensure compliance with the Receivers. A Sender indicates its support for being constrained on this capability by enumerating `urn:x-nmos:cap:transport:usb_class` in its [IS-11][] `constraints/supported` endpoint.
+A Controller MAY use [IS-11][] active constraints in conjunction with the Sender’s `urn:x-nmos:cap:transport:usb_class` capability to constrain the Sender and ensure compliance with connected Receivers. A Sender indicates its support for being constrained on this capability by enumerating `urn:x-nmos:cap:transport:usb_class` in its [IS-11][] `constraints/supported` endpoint.
 
 > Note: There is no `usb_class` Sender attribute, as might typically be expected, because a USB stream is composed of multiple sub-streams, each of which can be associated with multiple USB classes. The set of classes present in a given USB stream often changes dynamically.
 
