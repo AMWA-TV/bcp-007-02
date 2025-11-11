@@ -45,6 +45,8 @@ A `usb_device` object is defined as:
 ```
 A USB Source MAY include a `usb_devices` attribute, which is an array of `usb_device` objects. This attribute describes the USB devices accessible to a Receiver via the USB data stream. Inclusion of this information is optional.
 
+The `ipmx_bus_id` attribute is represented as an array of 64 bytes as in the messages defined by [TR-10-14][]. A Controller MAY present this attribute to a User as a string made of the UTF-8 character codes stored in the `ipmx_bus_id` array. The `ipmx_bus_id` array stores the original bytes of the messages to prevent issues arising from string representations that differ from the real values within the IPMX/USB stream.
+
 Examples of Source resources are provided in [Examples](./examples).
 
 ### Flows
@@ -63,7 +65,7 @@ The Sender MUST express its limitations or preferences regarding the USB streams
 
 The `constraint_sets` parameter within the `caps` object MUST be used to describe combinations of parameters the Sender can support, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers.
 
-A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB](https://www.usb.org) for class code definitions.
+A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
 A USB Sender operates as a TCP/IP server and accepts connections from USB Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.
 
@@ -95,7 +97,7 @@ The Receiver MUST express its limitations or preferences regarding the USB strea
 
 The `constraint_sets` parameter within the `caps` object MUST be used to describe combinations of parameters that the Receiver can support, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers.
 
-A USB Receiver SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See [USB](https://www.usb.org) for class code definitions.
+A USB Receiver SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
 A USB Receiver operates as a TCP/IP client. A USB Sender accepts connections from Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.
 
@@ -138,7 +140,7 @@ A Controller MAY connect a USB Receiver that does not support redundancy to eith
 |---------------|-------------|
 | `interface_ip`| MUST be set to the IP address of the Receiver’s network interface. The Receiver lists available interface addresses in the Constraints endpoint; the special value `auto` lets the Receiver choose an interface automatically. |
 | `source_ip`   | MUST be set to the IP address of the TCP server (Sender) that delivers the USB packets. A `null` value indicates the address has not yet been configured. |
-| `source_port` | MUST tbe set to the port of the TCP server (Sender) that delivers the USB packets. Accepts either an integer within the range 0–65535, the string "auto", or `null`. If set to "auto", the default is 5004. A `null` value indicates the port has not yet been configured. |
+| `source_port` | MUST be set to the port of the TCP server (Sender) that delivers the USB packets. Accepts either an integer within the range 0–65535, the string "auto", or `null`. If set to "auto", the default is 5004. A `null` value indicates the port has not yet been configured. |
 | `ext_*`       | Vendor‑specific, future AMWA extension parameters, or `ext_privacy_*`  transport parameters specified in [TR-10-14][] |
 
 
@@ -160,16 +162,17 @@ Unless constrained by [IS-11][], a Sender MAY produce any USB stream that is com
 
 
 ## Controllers
-
-A Controller SHOULD use a Sender's `urn:x-nmos:cap:transport:usb_class` capability to verify  Receivers' compatibility with the Sender and, if necessary, constrain the Sender to ensure compliance with the Receivers. A Sender indicates its support for being constrained on this capability by enumerating `urn:x-nmos:cap:transport:usb_class` in its [IS-11][] `constraints/supported` endpoint.
+A Controller MAY use [IS-11][] active constraints in conjunction with the Sender’s `urn:x-nmos:cap:transport:usb_class` capability to constrain the Sender and ensure compliance with connected Receivers. A Sender indicates its support for being constrained on this capability by enumerating `urn:x-nmos:cap:transport:usb_class` in its [IS-11][] `constraints/supported` endpoint.
 
 > Note: There is no `usb_class` Sender attribute, as might typically be expected, because a USB stream is composed of multiple sub-streams, each of which can be associated with multiple USB classes. The set of classes present in a given USB stream often changes dynamically.
+
+A Controller SHOULD NOT use the optional `usb_devices` attribute of a USB Source to establish compatibility for the `urn:x-nmos:cap:transport:usb_class` capability but it MAY use it to provide feedback to a User about the USB devices that would be ignored by a Receiver.
+
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [IS-11]: https://specs.amwa.tv/is-11/ "AMWA IS-11 NMOS Stream Compatibility Management Specification"
 [BCP-004-01]: https://specs.amwa.tv/bcp-004-01/ "AMWA BCP-004-01 NMOS Receiver Capabilities"
 [BCP-004-02]: https://specs.amwa.tv/bcp-004-02/ "AMWA BCP-004-02 NMOS Sender Capabilities"
-[TR-10-5]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-5_2024-02-23.pdf "HDCP Key Exchange Protocol - HKEP"
 [TR-10-14]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf "IPMX	USB"
 [TR-10-13]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf "Privacy Encryption Protocol (PEP)"
 [BCP-005-03]: https://specs.amwa.tv/bcp-005-03/ "AMWA BCP-005-03 NMOS With Privacy Encryption"
