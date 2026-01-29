@@ -116,9 +116,9 @@ In some scenarios, a group of USB Receivers controls the USB sub-system of a Dev
 
 Receivers MUST declare a device-scope tag "urn:x-nmos:tag:grouphint/v1.0" in their `tags` attribute.
 
-The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as follows: "\<group-name\>:\<role-in-group\> \<role-index\>".
+The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as "\<group-name\>:\<role-name-in-group\> \<role-index-in-group\>". This complies with the [Group Hint Tags][] format "\<group-name\>:\<role-in-group\>", where "\<role-in-group\>" is the combination of "\<role-name-in-group\>" and "\<role-index-in-group\>" separated by a space.
 
-All USB Receivers in the group MUST share the same `<group-name>`, the `role-in-group` MUST be `DATA` and each Receiver MUST declare a unique `role-index` integer within the `DATA` role.
+All USB Receivers in the group MUST share the same \<group-name\>, the \<role-name-in-group\> MUST be "DATA" and each Receiver MUST declare a unique \<role-index-in-group\> integer.
 
 > Example: First Receiver in group is "USB 0: DATA 0", second Receiver in group is "USB 0: DATA 1", etc.
 
@@ -183,3 +183,4 @@ A Controller SHOULD NOT use the optional `usb_devices` attribute of a USB Source
 [TR-10-13]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf "Privacy Encryption Protocol (PEP)"
 [BCP-005-03]: https://specs.amwa.tv/bcp-005-03/ "AMWA BCP-005-03 NMOS With Privacy Encryption"
 [NMOS Parameter Registers]:  https://github.com/AMWA-TV/nmos-parameter-registers "NMOS Parameter Registers"
+[Group Hint Tags]: https://specs.amwa.tv/nmos-parameter-registers/branches/main/tags/grouphint.html "Group Hint Tags"
