@@ -50,7 +50,7 @@ A `usb_device` object is defined as:
 }
 ```
 
-The JSON schema defining the `usb_device` object is available in the [NMOS Parameter Registers][] at the section defining [NMOS Source Attributes](https://github.com/AMWA-TV/nmos-parameter-registers/tree/main/source-attributes).
+The JSON schema defining the `usb_device` object is available in the [NMOS Parameter Registers][] at the section defining [NMOS Source Attributes](https://specs.amwa.tv/nmos-parameter-registers/branches/main/source-attributes/).
 
 The `ipmx_bus_id` attribute is represented as an array of 64 bytes as in the messages defined by [TR-10-14][]. A Controller MAY present this attribute to a User as a string made of the UTF-8 character codes stored in the `ipmx_bus_id` array. The `ipmx_bus_id` array stores the original bytes of the messages to prevent issues arising from string representations that differ from the real values within the IPMX/USB stream.
 
