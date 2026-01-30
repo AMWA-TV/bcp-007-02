@@ -70,7 +70,7 @@ A Sender associated with a USB Flow via the `flow_id` attribute SHOULD provide C
 
 The Sender MUST express its limitations or preferences regarding the USB streams it supports by indicating constraints in accordance with the [BCP-004-02][] specification. The Sender SHOULD declare its constraints as precisely as possible to allow a Controller to determine, with high confidence, the Sender's stream capabilities. It is not always practical for the constraints to enumerate every type of stream a Sender can or cannot produce; however, they SHOULD describe as many commonly used operating points as practical, along with any preferences.
 
-The USB Sender MUST use the `constraint_sets` parameter within the `caps` object to describe supported combinations of parameters, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers.
+The USB Sender MUST use the `constraint_sets` parameter within the `caps` object to describe supported combinations of parameters, using the parameter constraints defined in the [Capabilities Register](https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/) of the NMOS Parameter Registers. The full details are described in [BCP-004-02](NMOS Sender Capabilities).
 
 A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
