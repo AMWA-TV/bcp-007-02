@@ -114,7 +114,7 @@ An example Receiver resource is provided in [Examples](../examples/).
 
 In some scenarios, a group of USB Receivers controls the USB sub-system of a Device. 
 
-Receivers MUST declare a device-scope tag "urn:x-nmos:tag:grouphint/v1.0" in their `tags` attribute.
+Receivers MUST declare a device-scope tag "urn:x-nmos:tag:grouphint/v1.0" in their `tags` attribute (concept introduced in [BCP-002-01: Natural Grouping][]).
 
 The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as "\<group-name\>:\<role-name-in-group\> \<role-index-in-group\>". This complies with the [Group Hint Tags][] format "\<group-name\>:\<role-in-group\>", where "\<role-in-group\>" is the combination of "\<role-name-in-group\>" and "\<role-index-in-group\>" separated by a space.
 
