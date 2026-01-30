@@ -184,3 +184,4 @@ A Controller SHOULD NOT use the optional `usb_devices` attribute of a USB Source
 [BCP-005-03]: https://specs.amwa.tv/bcp-005-03/ "AMWA BCP-005-03 NMOS With Privacy Encryption"
 [NMOS Parameter Registers]:  https://github.com/AMWA-TV/nmos-parameter-registers "NMOS Parameter Registers"
 [Group Hint Tags]: https://specs.amwa.tv/nmos-parameter-registers/branches/main/tags/grouphint.html "Group Hint Tags"
+[BCP-002-01: Natural Grouping]: https://specs.amwa.tv/bcp-002-01/ "Natural Grouping of NMOS Resources"
