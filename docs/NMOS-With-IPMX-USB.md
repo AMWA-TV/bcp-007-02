@@ -106,7 +106,7 @@ The Receiver MUST use the `constraint_sets` parameter within the `caps` object t
 
 A USB Receiver SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
-A USB Receiver MUST operate as a TCP/IP client. A USB Sender accepts connections from Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` MUST be TCP, and MAY optionally be using MPTCP (MultiPath TCP) for redundancy.
+A USB Receiver MUST operate as a TCP/IP client. A USB Sender accepts connections from Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` MUST be TCP, and MAY optionally be MPTCP (MultiPath TCP) for redundancy.
 
 An example Receiver resource is provided in [Examples](../examples/).
 
