@@ -74,7 +74,7 @@ The USB Sender MUST use the `constraint_sets` parameter within the `caps` object
 
 A Sender SHOULD provide the `urn:x-nmos:cap:transport:usb_class` capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See [USB Class Codes](https://www.usb.org/defined-class-codes) for class code definitions.
 
-A USB Sender MUST operate as a TCP/IP server and accepts connections from USB Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` MUST be TCP, and MAY optionally be using MPTCP (MultiPath TCP) for redundancy.
+A USB Sender MUST operate as a TCP/IP server and accepts connections from USB Receivers. The underlying transport protocol for `urn:x-nmos:transport:usb` MUST be TCP, and MAY optionally be MPTCP (MultiPath TCP) for redundancy.
 
 An example Sender resource is provided in [Examples](../examples/).
 
