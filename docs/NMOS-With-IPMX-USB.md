@@ -180,7 +180,7 @@ A Controller SHOULD NOT use the optional `usb_devices` attribute of a USB Source
 [BCP-004-01]: https://specs.amwa.tv/bcp-004-01/ "AMWA BCP-004-01 NMOS Receiver Capabilities"
 [BCP-004-02]: https://specs.amwa.tv/bcp-004-02/ "AMWA BCP-004-02 NMOS Sender Capabilities"
 [TR-10-14]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf "IPMX	USB"
-[TR-10-13]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf "Privacy Encryption Protocol (PEP)"
+[TR-10-13]: https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2025-12-13.pdf "Privacy Encryption Protocol (PEP)"
 [BCP-005-03]: https://specs.amwa.tv/bcp-005-03/ "AMWA BCP-005-03 NMOS With Privacy Encryption"
 [NMOS Parameter Registers]:  https://github.com/AMWA-TV/nmos-parameter-registers "NMOS Parameter Registers"
 [Group Hint Tags]: https://specs.amwa.tv/nmos-parameter-registers/branches/main/tags/grouphint.html "Group Hint Tags"
