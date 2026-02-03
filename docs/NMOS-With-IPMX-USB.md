@@ -135,7 +135,7 @@ Refer to the [BCP-005-03][] "NMOS Support for IPMX/PEP" document for more detail
 
 ### Receivers
 
-A `PATCH` request on the **/staged** endpoint of an IS-05 Receiver MAY include an SDP transport file in the `transport_file` attribute. The SDP transport file for a USB stream MUST comply with the IPMX [TR-10-14][] specification but might not comply with the additional requirements specified for SDP transport files at Senders.
+A `PATCH` request on the **/staged** endpoint of an IS-05 Receiver can contain an SDP transport file in the `transport_file` attribute. The SDP transport file for a USB stream is expected to comply with the IPMX [TR-10-14][] specification. It need not comply with the additional requirements specified for SDP transport files at Senders.
 
 If the USB Receiver is not capable of consuming the stream described by the `PATCH` request, it SHOULD reject the request. If it is unable to assess stream compatibility because some parameters are missing from the `PATCH` request, it MAY accept the request and defer stream compatibility assessment.
 
