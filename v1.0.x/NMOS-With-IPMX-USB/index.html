@@ -1,0 +1,1255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://specs.amwa.tv/new/bcp-007-02/v1.0.x/NMOS-With-IPMX-USB/">
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+        <link rel="next" href="../schemas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>NMOS With IPMX/USB - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/amwa-branding.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amwa-bcp-007-02-nmos-with-ipmxusb" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX&#x2f;USB" class="md-header__button md-logo" aria-label="[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NMOS With IPMX/USB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AMWA-TV/bcp-007-02" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AMWA-TV/bcp-007-02
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX&#x2f;USB" class="md-nav__button md-logo" aria-label="[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AMWA-TV/bcp-007-02" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AMWA-TV/bcp-007-02
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Content
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Content
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NMOS With IPMX/USB
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NMOS With IPMX/USB
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Introduction
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-normative-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Use of Normative Language
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definitions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-04-sources-flows-and-senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-04 Sources, Flows and Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-04 Sources, Flows and Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdp-format-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDP format-specific parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-04-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-04 Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-04 Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grouping-of-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grouping of Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-05-senders-and-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-05 Senders and Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-05 Senders and Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senders_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-11-senders-and-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-11 Senders and Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controllers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JSON Schemas
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  JSON Schemas
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JSON Schemas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/receiver_transport_constraints_usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver_transport_constraints_usb
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/receiver_transport_params_usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver_transport_params_usb
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/sender_transport_constraints_usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender_transport_constraints_usb
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/sender_transport_params_usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender_transport_params_usb
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Introduction
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-normative-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Use of Normative Language
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definitions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-04-sources-flows-and-senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-04 Sources, Flows and Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-04 Sources, Flows and Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdp-format-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDP format-specific parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-04-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-04 Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-04 Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grouping-of-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grouping of Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-05-senders-and-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-05 Senders and Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB IS-05 Senders and Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Receivers
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receivers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senders_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-is-11-senders-and-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB IS-11 Senders and Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controllers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="amwa-bcp-007-02-nmos-with-ipmxusb">AMWA BCP-007-02: NMOS With IPMX/USB</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The VSF/IPMX <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> technical recommendation defines the transport of a USB stream over TCP/IP. It enables the multiplexed transport of keyboard, mouse, data, audio, and video sub-streams over TCP/IP. Senders and Receivers using the USB transport have their <code>format</code> attribute set to <code>urn:x-nmos:format:data</code> and their <code>transport</code> attribute set to  <code>urn:x-nmos:transport:usb</code>. The <code>media_type</code> attribute of a USB Receiver is <code>application/usb</code>, and the <code>media_type</code> of a data Flow connected to a USB Sender is also <code>application/usb</code>.</p>
+<p>The content of a USB stream is not exposed at the NMOS level. It is treated as an opaque data stream. A USB Receiver connected to a USB Sender gains access to the USB devices available at the Sender. Each such device is represented by a corresponding multiplexed data sub-stream. Devices may be plugged or unplugged dynamically without affecting the connection between the Receiver and Sender, or the associated Source, Flow, and Sender resources.</p>
+<p>The roles of USB Senders and Receivers may initially appear counterintuitive due to their physical placement within devices. Consider a KVM system in which a User interacts with a local KVM endpoint that connects to a remote computer over the network. The remote computer outputs video and audio; therefore, the audio and video Senders reside on the remote side, and the corresponding Receivers reside on the local KVM endpoint. Conversely, the local KVM endpoint provides keyboard, mouse, and storage devices; hence, the USB Sender resides at the local KVM endpoint, while the USB Receiver is located on the remote computer side.</p>
+<p>KVM systems are often sensitive to privacy and security. The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> technical recommendation includes built-in support for privacy encryption. Given that USB streams are unlikely to be used without privacy encryption, the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> technical recommendation retains the privacy encryption components in the protocol messages, even when encryption is not enabled. For more details on privacy-encrypted USB streams, refer to the <a href="https://specs.amwa.tv/bcp-005-03/" title="AMWA BCP-005-03 NMOS With Privacy Encryption">BCP-005-03</a> "NMOS With Privacy Encryption" document.</p>
+<h2 id="use-of-normative-language">Use of Normative Language</h2>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs">RFC 2119</a>.</p>
+<h2 id="definitions">Definitions</h2>
+<p>The NMOS terms 'Controller', 'Node', 'Source', 'Flow', 'Sender', 'Receiver' are used as defined in the <a href="https://specs.amwa.tv/nmos/main/docs/Glossary.html">NMOS Glossary</a>.</p>
+<h2 id="usb-is-04-sources-flows-and-senders">USB IS-04 Sources, Flows and Senders</h2>
+<p>Nodes that are capable of transmitting USB data streams MUST expose Source, Flow and Sender resources in the IS-04 Node API.</p>
+<p>Nodes compliant with this specification MUST implement IS-04 v1.3 or higher, and IS-05 v1.1 or higher.</p>
+<h3 id="sources">Sources</h3>
+<p>A USB Source resource MUST set the <code>format</code> attribute to <code>urn:x-nmos:format:data</code> and MUST be associated with a Flow of the same <code>format</code> via the <code>source_id</code> attribute of the Flow. </p>
+<p>A <code>usb_device</code> object is defined as:</p>
+<p><div class="highlight"><pre><span></span><code>{
+    "ipmx_bus_id": [64]integer, // IPMX USB UTF-8 BUSID 64 byte value (integers in the range 0 to 255)
+    "class": []integer,         // class of a device or classes if a composite device (integers in the range 0 to 255)
+    "vendor": integer,          // vendor id (integer in the range 0 to 65535)
+    "product": integer,         // product id (integer in the range 0 to 65535)
+    "serial": string,           // serial number (empty string "" if not available)
+}
+</code></pre></div>
+A USB Source MAY include a <code>usb_devices</code> attribute, which is an array of <code>usb_device</code> objects. This attribute describes the USB devices accessible to a Receiver via the USB data stream. Inclusion of this information is optional.</p>
+<p>The <code>ipmx_bus_id</code> attribute is represented as an array of 64 bytes as in the messages defined by <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a>. A Controller MAY present this attribute to a User as a string made of the UTF-8 character codes stored in the <code>ipmx_bus_id</code> array. The <code>ipmx_bus_id</code> array stores the original bytes of the messages to prevent issues arising from string representations that differ from the real values within the IPMX/USB stream.</p>
+<p>Examples of Source resources are provided in <a href=".././examples">Examples</a>.</p>
+<h3 id="flows">Flows</h3>
+<p>A USB Flow resource MUST set the <code>media_type</code> attribute to <code>application/usb</code> and the <code>format</code> attribute to <code>urn:x-nmos:format:data</code>. A USB Flow MUST include a <code>source_id</code> attribute referencing a Source of the same <code>format</code>.</p>
+<p>Examples of Flow resources are provided in <a href=".././examples">Examples</a>.</p>
+<h3 id="senders">Senders</h3>
+<p>A USB Sender resource MUST set the <code>transport</code> attribute to <code>urn:x-nmos:transport:usb</code>.</p>
+<p>A Sender associated with a USB Flow via the <code>flow_id</code> attribute SHOULD provide Capabilities describing the characteristics of the data Flow.</p>
+<p>The Sender MUST express its limitations or preferences regarding the USB streams it supports by indicating constraints in accordance with the <a href="https://specs.amwa.tv/bcp-004-02/" title="AMWA BCP-004-02 NMOS Sender Capabilities">BCP-004-02</a> specification. The Sender SHOULD declare its constraints as precisely as possible to allow a Controller to determine, with high confidence, the Sender's stream capabilities. It is not always practical for the constraints to enumerate every type of stream a Sender can or cannot produce; however, they SHOULD describe as many commonly used operating points as practical, along with any preferences.</p>
+<p>The <code>constraint_sets</code> parameter within the <code>caps</code> object MUST be used to describe combinations of parameters the Sender can support, using the parameter constraints defined in the <a href="https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/">Capabilities Register</a> of the NMOS Parameter Registers.</p>
+<p>A Sender SHOULD provide the <code>urn:x-nmos:cap:transport:usb_class</code> capability to indicate the USB classes (integers in the range 0 to 255) supported by the Sender. See <a href="https://www.usb.org/defined-class-codes">USB Class Codes</a> for class code definitions.</p>
+<p>A USB Sender operates as a TCP/IP server and accepts connections from USB Receivers. The underlying transport protocol for <code>urn:x-nmos:transport:usb</code> is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.</p>
+<p>An example Sender resource is provided in <a href=".././examples">Examples</a>.</p>
+<h4 id="sdp-format-specific-parameters">SDP format-specific parameters</h4>
+<p>The <code>manifest_href</code> attribute of the Sender MUST provide the URL to an SDP transport file that complies with the requirements of <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> and the following additional rules:</p>
+<ul>
+<li>
+<p>The media description line <code>m=&lt;media&gt; &lt;port&gt; &lt;proto&gt; &lt;fmt&gt; ...</code> MUST have <code>&lt;media&gt;</code> set to <code>application</code>, <code>&lt;proto&gt;</code> set to <code>TCP</code> and <code>&lt;fmt&gt;</code> set to <code>usb</code>. This indicates that the <code>media_type</code> is <code>application/usb</code> and that the transport protocol is TCP, as used by <code>urn:x-nmos:transport:usb</code>.</p>
+</li>
+<li>
+<p>The connection information lines <code>c=&lt;nettype&gt; &lt;addrtype&gt; &lt;connection-address&gt;</code> MUST have <code>&lt;connection-address&gt;</code> set to the IP address of the Sender's TCP server.</p>
+</li>
+<li>
+<p>The attribute <code>a=setup:passive</code> MUST be specified.</p>
+</li>
+<li>
+<p>If redundancy is used, at most two paths (legs) MUST be specified using two separate media descriptors. The <code>&lt;connection-address&gt;</code> of each descriptor MUST specify a different path to the Sender's TCP server. A <code>a=group:DUP</code> session attribute MUST reference both media descriptors using their <code>a=mid:</code> attributes. The first identifier in the <code>a=group:DUP</code> session attribute MUST correspond to the first leg (path), and the second identifier to the second leg. The first leg corresponds to entry 0 of the IS-05 transport parameters array; the second leg corresponds to entry 1.</p>
+</li>
+</ul>
+<h2 id="usb-is-04-receivers">USB IS-04 Receivers</h2>
+<p>Nodes that are capable of receiving USB data streams MUST have Receiver resources in the IS-04 Node API.</p>
+<p>Nodes compliant with this specification MUST implement IS-04 v1.3 or higher and IS-05 v1.1 or higher.</p>
+<p>A USB Receiver resource MUST set the <code>transport</code> attribute to <code>urn:x-nmos:transport:usb</code>.</p>
+<p>A USB Receiver MUST set the <code>format</code> attribute to <code>urn:x-nmos:format:data</code>, MUST include <code>application/usb</code> in the <code>media_types</code> array within the caps object, and SHOULD declare the Receiver's Capabilities for the data stream.</p>
+<p>The Receiver MUST express its limitations or preferences regarding the USB streams that it supports by declaring constraints in accordance with the <a href="https://specs.amwa.tv/bcp-004-01/" title="AMWA BCP-004-01 NMOS Receiver Capabilities">BCP-004-01</a> specifications. The Receiver SHOULD express its constraints as precisely as possible, to enable a Controller to determine, with high confidence, the Receiver's compatibility with available streams. It is not always practical for the constraints to enumerate every type of stream a Receiver can or cannot consume; however, they SHOULD describe as many commonly used operating points as practical, along with any preferences.</p>
+<p>The <code>constraint_sets</code> parameter within the <code>caps</code> object MUST be used to describe combinations of parameters that the Receiver can support, using the parameter constraints defined in the <a href="https://specs.amwa.tv/nmos-parameter-registers/branches/main/capabilities/">Capabilities Register</a> of the NMOS Parameter Registers.</p>
+<p>A USB Receiver SHOULD provide the <code>urn:x-nmos:cap:transport:usb_class</code> capability to indicate the USB classes (integers in the range 0 to 255) supported by the Receiver. See <a href="https://www.usb.org/defined-class-codes">USB Class Codes</a> for class code definitions.</p>
+<p>A USB Receiver operates as a TCP/IP client. A USB Sender accepts connections from Receivers. The underlying transport protocol for <code>urn:x-nmos:transport:usb</code> is TCP, optionally using MPTCP (MultiPath TCP) for redundancy.</p>
+<p>An example Receiver resource is provided in <a href=".././examples">Examples</a>.</p>
+<h3 id="grouping-of-receivers">Grouping of Receivers</h3>
+<p>In some scenarios, a group of USB Receivers controls the USB sub-system of a Device. </p>
+<p>Receivers MUST declare a device-scope tag "urn:x-nmos:tag:grouphint/v1.0" in their <code>tags</code> attribute.</p>
+<p>The "urn:x-nmos:tag:grouphint/v1.0" tag array MUST contain a single string formatted as follows: "\&lt;group-name&gt;:\&lt;role-in-group&gt; \&lt;role-index&gt;".</p>
+<p>All USB Receivers in the group MUST share the same <code>&lt;group-name&gt;</code>, the <code>role-in-group</code> MUST be <code>DATA</code> and each Receiver MUST declare a unique <code>role-index</code> integer within the <code>DATA</code> role.</p>
+<blockquote>
+<p>Example: First Receiver in group is "USB 0: DATA 0", second Receiver in group is "USB 0: DATA 1", etc.</p>
+</blockquote>
+<p>Using this grouping convention, a Controller can determine how many USB Senders simultaneously control the USB sub-system of a Device. </p>
+<h2 id="usb-is-05-senders-and-receivers">USB IS-05 Senders and Receivers</h2>
+<p>Connection Management using IS-05 proceeds in the same manner as for any other transport, using USB-specific transport parameters defined in <a href="../../schemas/sender_transport_params_usb.json">USB Sender transport parameters</a> and <a href="../../schemas/receiver_transport_params_usb.json">USB Receiver transport parameters</a>. The <code>source_ip</code> and <code>source_port</code> transport parameters MUST be present in the IS-05 <code>active</code>, <code>staged</code>, and <code>constraints</code> endpoints of a USB Sender. The <code>source_ip</code>, <code>source_port</code> and <code>interface_ip</code> transport parameters MUST be present in the IS-05 <code>active</code>, <code>staged</code>, and <code>constraints</code> endpoints of a USB Receiver.</p>
+<p>Redundancy MUST be implemented using MPTCP. At most two sets of transport parameters MUST be specified for Senders and Receivers supporting redundancy with the <code>urn:x-nmos:transport:usb</code> transport. The parameters for the first leg MUST appear as entry 0 in the transport parameters array; those for the second leg MUST appear as entry 1.</p>
+<p>For security reasons, USB streams are typically encrypted using the IPMX <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Privacy Encryption Protocol (PEP)">TR-10-13</a> Privacy Encryption Protocol. Additional <code>ext_privacy_*</code> extended transport parameters, as normatively defined in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Privacy Encryption Protocol (PEP)">TR-10-13</a>, are present in the IS-05 <code>active</code>, <code>staged</code>, and <code>constraints</code> endpoints of USB Senders and Receivers. 
+Refer to the <a href="https://specs.amwa.tv/bcp-005-03/" title="AMWA BCP-005-03 NMOS With Privacy Encryption">BCP-005-03</a> "NMOS With Privacy Encryption" document for more details.</p>
+<h3 id="receivers">Receivers</h3>
+<p>A <code>PATCH</code> request on the <strong>/staged</strong> endpoint of an IS-05 Receiver MAY include an SDP transport file in the <code>transport_file</code> attribute. The SDP transport file for a USB stream is expected to comply with the IPMX <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> specification. It need not comply with the additional requirements specified for SDP transport files at Senders.</p>
+<p>If the USB Receiver is not capable of consuming the stream described by the <code>PATCH</code> request, it SHOULD reject the request. If it is unable to assess stream compatibility because some parameters are missing from the <code>PATCH</code> request, it MAY accept the request and defer stream compatibility assessment.</p>
+<p>A Controller MAY connect a USB Receiver that does not support redundancy to either leg of a Sender supporting redundancy. When connecting to a Sender that does not support redundancy, a Controller MUST set the <code>source_ip</code> and <code>source_port</code> attributes of the unused leg of a Receiver supporting redundancy to <code>null</code>.</p>
+<h4 id="transport-parameters">Transport Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>interface_ip</code></td>
+<td>MUST be set to the IP address of the Receiver’s network interface. The Receiver lists available interface addresses in the Constraints endpoint; the special value <code>auto</code> lets the Receiver choose an interface automatically.</td>
+</tr>
+<tr>
+<td><code>source_ip</code></td>
+<td>MUST be set to the IP address of the TCP server (Sender) that delivers the USB packets. A <code>null</code> value indicates the address has not yet been configured.</td>
+</tr>
+<tr>
+<td><code>source_port</code></td>
+<td>MUST be set to the port of the TCP server (Sender) that delivers the USB packets. Accepts either an integer within the range 0–65535, the string "auto", or <code>null</code>. If set to "auto", the default is 5004. A <code>null</code> value indicates the port has not yet been configured.</td>
+</tr>
+<tr>
+<td><code>ext_*</code></td>
+<td>Vendor‑specific, future AMWA extension parameters, or <code>ext_privacy_*</code>  transport parameters specified in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="senders_1">Senders</h3>
+<p>If the IS-04 Sender's <code>manifest_href</code> attribute is not <code>null</code>, the SDP transport file returned by the <strong>/transportfile</strong> endpoint MUST comply with the same requirements as the SDP transport file referenced by the Sender's <code>manifest_href</code> attribute.</p>
+<p>Unless constrained by <a href="https://specs.amwa.tv/is-11/" title="AMWA IS-11 NMOS Stream Compatibility Management Specification">IS-11</a>, a Sender MAY produce any USB stream that is compliant with the associated <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a> Flow.</p>
+<h4 id="transport-parameters_1">Transport Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_ip</code></td>
+<td>MUST be set to the IP address of the TCP server that delivers the USB packets. The Sender should enumerate available interfaces in the <code>constraints</code> endpoint; the special value <code>auto</code> lets the Sender select an interface automatically, based on its routing rules.</td>
+</tr>
+<tr>
+<td><code>source_port</code></td>
+<td>MUST be set to the port of the TCP server that delivers the USB packets. Accepts either an integer within the range 0–65535 or the string "auto"  (default 5004).</td>
+</tr>
+<tr>
+<td><code>ext_*</code></td>
+<td>Vendor‑specific, future AMWA extension parameters, or <code>ext_privacy_*</code>  transport parameters specified in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="IPMX USB">TR-10-14</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usb-is-11-senders-and-receivers">USB IS-11 Senders and Receivers</h2>
+<h2 id="controllers">Controllers</h2>
+<p>A Controller MAY use <a href="https://specs.amwa.tv/is-11/" title="AMWA IS-11 NMOS Stream Compatibility Management Specification">IS-11</a> active constraints in conjunction with the Sender’s <code>urn:x-nmos:cap:transport:usb_class</code> capability to constrain the Sender and ensure compliance with connected Receivers. A Sender indicates its support for being constrained on this capability by enumerating <code>urn:x-nmos:cap:transport:usb_class</code> in its <a href="https://specs.amwa.tv/is-11/" title="AMWA IS-11 NMOS Stream Compatibility Management Specification">IS-11</a> <code>constraints/supported</code> endpoint.</p>
+<blockquote>
+<p>Note: There is no <code>usb_class</code> Sender attribute, as might typically be expected, because a USB stream is composed of multiple sub-streams, each of which can be associated with multiple USB classes. The set of classes present in a given USB stream often changes dynamically.</p>
+</blockquote>
+<p>A Controller SHOULD NOT use the optional <code>usb_devices</code> attribute of a USB Source to establish compatibility for the <code>urn:x-nmos:cap:transport:usb_class</code> capability but it MAY use it to provide feedback to a User about the USB devices that would be ignored by a Receiver.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":[],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/json-viewer.js"></script>
+      
+        <script src="../javascripts/amwa-branding.js"></script>
+      
+    
+  </body>
+</html>

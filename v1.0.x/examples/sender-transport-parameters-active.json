@@ -1,0 +1,24 @@
+{
+    "receiver_id": null,
+    "master_enable": true,
+    "activation": {
+        "mode": "activate_immediate",
+        "requested_time": null,
+        "activation_time": "1755191577:297392784"
+    },
+    "transport_params": [
+        {
+            "source_ip": "192.168.0.1",
+            "source_port": 27502,
+            "ext_privacy_protocol": "USB_KV",
+            "ext_privacy_mode": "AES-128-CTR_CMAC-64-AAD",
+            "ext_privacy_iv": "684827cdac91c077",
+            "ext_privacy_key_generator": "49e39cd721fbf2e5b46af3c872ef4a20",
+            "ext_privacy_key_id": "0001020304050607",
+            "ext_privacy_key_version": "765d8a2c",
+            "ext_privacy_ecdh_sender_public_key": "17efd3765ef00ce47f93d5627f544078c3fe639377e00c9051c67ee9bff4681f",
+            "ext_privacy_ecdh_receiver_public_key": "00",
+            "ext_privacy_ecdh_curve": "25519"
+        }
+    ]
+}
