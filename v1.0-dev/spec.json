@@ -1,0 +1,26 @@
+{
+  "amwa_id": "BCP-007-02",
+  "url": "https://specs.amwa.tv/bcp-007-02",
+  "name": "NMOS Support for IPMX/USB",
+  "status": "Work In Progress",
+  "repo_name": "bcp-007-02",
+  "alt_repo_name": "nmos-bcp-ipmx-usb",
+  "repo_url": "https://github.com/AMWA-TV/bcp-007-02",
+  "releases": null,
+  "default_branch": "v1.0-dev",
+  "show_in_index": true,
+  "intro": {
+    "what_does_it_do": [
+      "Establishes a new IS-05 transport for NMOS Senders and Receivers implementing USB over IP and allows Controllers to establish compatible connections.",
+      "Establishes a standardized mechanism for NMOS Senders and Receivers to declare support for USB over IP transport streams using IPMX/USB (VSF TR-10-14)."
+    ],
+    "why_does_it_matter": [
+      "An NMOS Controller can verify that any Receiver is compliant with a Sender producing USB over IP transport streams, as only IPMX/USB-compliant Receivers can process such content.",
+      "A standardized framework enables Controllers to systematically verify and/or enforce compliance."
+    ],
+    "how_does_it_work": [
+      "Documents how IPMX/USB capabilities are announced by both Senders and Receivers.",
+      "Outlines the requirements for Senders, Receivers, and Controllers regarding the IPMX/USB feature."
+    ]
+  }
+}

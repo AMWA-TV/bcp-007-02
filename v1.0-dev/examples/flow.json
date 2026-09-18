@@ -1,0 +1,12 @@
+{
+    "id": "7771fba1-0402-4000-ab00-4d5458005079",
+    "version": "1755189333:996279310",
+    "label": "Flow USB 0",
+    "description": "This is the Flow USB 0",
+    "tags": {},
+    "source_id": "5d2b608c-0502-4000-ab00-4d5458005079",
+    "device_id": "00000000-0100-4000-ab00-4d5458005079",
+    "parents": [],
+    "format": "urn:x-nmos:format:data",
+    "media_type": "application/usb"
+}

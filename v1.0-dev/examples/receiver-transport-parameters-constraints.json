@@ -1,0 +1,47 @@
+[
+    {
+        "ext_privacy_ecdh_curve": {
+            "enum": [
+                "25519",
+                "secp256r1"
+            ]
+        },
+        "ext_privacy_ecdh_receiver_public_key": {
+            "description": "read-only",
+            "enum": [
+                "1c58d64987f3dc98e8c9c8b6b7258b0dae57a2d166fc267748e64ca131d19fe4"
+            ]
+        },
+        "ext_privacy_ecdh_sender_public_key": {},
+        "ext_privacy_iv": {},
+        "ext_privacy_key_generator": {},
+        "ext_privacy_key_id": {
+            "enum": [
+                "0001020304050607",
+                "0000000000000000"
+            ]
+        },
+        "ext_privacy_key_version": {},
+        "ext_privacy_mode": {
+            "enum": [
+                "AES-128-CTR_CMAC-64-AAD",
+                "ECDH_AES-128-CTR_CMAC-64-AAD",
+                "AES-256-CTR_CMAC-64-AAD",
+                "ECDH_AES-256-CTR_CMAC-64-AAD"
+            ]
+        },
+        "ext_privacy_protocol": {
+            "enum": [
+                "USB",
+                "USB_KV"
+            ]
+        },
+        "interface_ip": {
+            "enum": [
+                "127.0.0.1"
+            ]
+        },
+        "source_ip": {},
+        "source_port": {}
+    }
+]

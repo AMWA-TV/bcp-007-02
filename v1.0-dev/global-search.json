@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "repository": "AMWA-TV/bcp-007-02",
+  "documents": [
+    {
+      "title": "AMWA BCP-007-02: NMOS With IPMX/USB",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/NMOS-With-IPMX-USB/",
+      "text": "AMWA BCP-007-02: NMOS With IPMX/USB AMWA BCP-007-02: NMOS With IPMX/USB Introduction Use of Normative Language Definitions USB IS-04 Sources, Flows and Senders Sources Flows Senders USB IS-04 Receivers Grouping of Receivers USB IS-05 Senders and Receivers Receivers Senders USB IS-11 Senders and Receivers Controllers NMOS With IPMX/USB - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content AMWA BCP-007-02: NMOS With IPMX/USB Introduction The VSF/IPMX TR-10-14 technical recommendation defines the transport of a USB stream over TCP/IP. It enables the multiplexed transport of keyboard, mouse, data, audio, and video sub-streams over TCP/IP. Senders and Receivers using the USB transport have their format attribute set to urn:x-nmos:format:data and their transport attribute set to urn:x-nmos:transport:usb . The media_type attribute of a USB Receiver is application/usb , and the media_type of a data Flow connected to a USB Sender is also application/usb . The content of a USB stream is not exposed at the NMOS level. It is treated as an opaque data stream. A USB Receiver connected to a USB Sender gains access to the USB devices available at the Sender. Each such device is represented by a corresponding multiplexed data sub-stream. Devices may be plugged or unplugged dynamically without affecting the connection between the Receiver and Sender, or the associated Source, Flow, and Sender resources. The roles of USB Senders and Receivers may initially appear counterintuitive due to their physical placement within devices. Consider a KVM system in which a User interacts with a local KVM endpoint that connects to a remote computer over the network. The remote computer outputs video and audio; therefore, the audio and video Senders reside on the remote computer, and the corresponding Receivers reside on the local KVM endpoint. Conversely, the local KVM endpoint provides keyboard, mouse, and storage devices; hence, the USB Sender resides at the local KVM endpoint, while the USB Receiver is located on the remote computer. KVM systems are often sensitive to privacy and security. The TR-10-14 technical recommendation includes built-in support for privacy encryption. Given that USB streams are unlikely to be used without privacy encryption, the TR-10-14 technical recommendation retains the privacy encryption components in the protocol messages, even when encryption is not enabled. For more details on privacy-encrypted USB streams, refer to the BCP-005-03 \"NMOS With Privacy Encryption\" document. Use of Normative Language The key words \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in this document are to be interpreted as described in RFC 2119 . Definitions The NMOS terms 'Controller', 'Node', 'Source', 'Flow', 'Sender', 'Receiver' are used as defined in the NMOS Glossary , however Sources, Flows, Senders and Receivers referred to in this document are USB Sources, USB Flows, USB Senders and USB Receivers unless otherwise specified. 'Capabilities' are used by IS-04 Senders and Receivers to indicate what they can generate and consume respectively. USB IS-04 Sources, Flows and Senders Nodes that are capable of transmitting USB data streams MUST expose Source, Flow and Sender resources in the IS-04 Node API. Nodes compliant with this specification MUST implement IS-04 v1.3 or higher, and IS-05 v1.1 or higher. Sources A USB Source resource MUST set the format attribute to urn:x-nmos:format:data and MUST be associated with a Flow of the same format via the source_id attribute of the Flow. A USB Source MAY include a usb_devices attribute, which is an array of usb_device objects. This attribute describes the USB devices accessible to a Receiver via the USB data stream. Inclusion of this information is optional. A usb_device object is defined as: { \"ipmx_bus_id\": [64]integer, // IPMX USB UTF-8 BUSID 64 byte value (integers in the range 0 to 255) \"class\": []integer, // class of a device or classes if a composite device (integers in the range 0 to 255) \"vendor\": integer, // vendor id (integer in the range 0 to 65535) \"product\": integer, // product id (integer in the range 0 to 65535) \"serial\": string, // serial number (empty string \"\" if not available) } The JSON schema defining the usb_device object is available in the NMOS Parameter Registers at the section defining NMOS Source Attributes . The ipmx_bus_id attribute is represented as an array of 64 bytes as in the messages defined by TR-10-14 . A Controller MAY present this attribute to a User as a string made of the UTF-8 character codes stored in the ipmx_bus_id array. The ipmx_bus_id array stores the original bytes of the messages to prevent issues arising from string representations that differ from the real values within the IPMX/USB stream. Examples of Source resources are provided in Examples . Flows A USB Flow resource MUST set the media_type attribute to application/usb and the format attribute to urn:x-nmos:format:data . A USB Flow MUST include a source_id attribute referencing a Source of the same format . Examples of Flow resources are provided in Examples . Senders A USB Sender resource MUST set the transport attribute to urn:x-nmos:transport:usb . A Sender associated with a USB Flow via the flow_id attribute SHOULD provide Capabilities describing the characteristics of the data Flow. The Sender MUST express its limitations or preferences regarding the USB streams it supports by indicating constraints in accordance with the BCP-004-02 specification. The Sender SHOULD declare its constraints as precisely as possible to allow a Controller to determine, with high confidence, the Sender's stream capabilities. It is not always practical for the constraints to enumerate every type of stream a Sender can or cannot produce; however, they SHOULD describe as many commonly used operating points as practical, along with any preferences. The USB Sender MUST use the constraint_",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "flow.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/flow/",
+      "text": "flow.json flow.json flow.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content flow.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "Examples",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/",
+      "text": "Examples Examples Examples - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content Examples flow.json receiver-transport-parameters-active.json receiver-transport-parameters-constraints.json receiver.json sender-transport-parameters-active.json sender-transport-parameters-constraints.json sender.json source.json",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/receiver/",
+      "text": "receiver.json receiver.json receiver.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/receiver-transport-parameters-active/",
+      "text": "receiver-transport-parameters-active.json receiver-transport-parameters-active.json receiver-transport-parameters-active.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/receiver-transport-parameters-constraints/",
+      "text": "receiver-transport-parameters-constraints.json receiver-transport-parameters-constraints.json receiver-transport-parameters-constraints.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/sender/",
+      "text": "sender.json sender.json sender.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/sender-transport-parameters-active/",
+      "text": "sender-transport-parameters-active.json sender-transport-parameters-active.json sender-transport-parameters-active.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/sender-transport-parameters-constraints/",
+      "text": "sender-transport-parameters-constraints.json sender-transport-parameters-constraints.json sender-transport-parameters-constraints.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "source.json",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/examples/source/",
+      "text": "source.json source.json source.json - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content source.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "README",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/images/",
+      "text": "README README README - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content README This directory is for images used in documentation",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/",
+      "text": "[Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB What does it do? Why does it matter? How does it work? Getting started [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB This repository holds the source for this Specification, part of the family of Networked Media Open Specifications from the Advanced Media Workflow Association What does it do? Establishes a new IS-05 transport for NMOS Senders and Receivers implementing USB over IP and allows Controllers to establish compatible connections. Establishes a standardized mechanism for NMOS Senders and Receivers to declare support for USB over IP transport streams using IPMX/USB (VSF TR-10-14). Why does it matter? An NMOS Controller can verify that any Receiver is compliant with a Sender producing USB over IP transport streams, as only IPMX/USB-compliant Receivers can process such content. A standardized framework enables Controllers to systematically verify and/or enforce compliance. How does it work? Documents how IPMX/USB capabilities are announced by both Senders and Receivers. Outlines the requirements for Senders, Receivers, and Controllers regarding the IPMX/USB feature. Getting started There is more information about the NMOS Specifications and their GitHub repos at https://specs.amwa.tv/nmos .",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "constraint-schema",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/constraint-schema/",
+      "text": "constraint-schema constraint-schema constraint-schema - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content constraint-schema With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "JSON Schemas",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/",
+      "text": "JSON Schemas JSON Schemas JSON Schemas - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content JSON Schemas constraint-schema receiver_transport_constraints_usb receiver_transport_params_ext receiver_transport_params_usb sender_transport_constraints_usb sender_transport_params_ext sender_transport_params_usb",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver_transport_constraints_usb",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/receiver_transport_constraints_usb/",
+      "text": "receiver_transport_constraints_usb receiver_transport_constraints_usb receiver_transport_constraints_usb - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver_transport_constraints_usb With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver_transport_params_ext",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/receiver_transport_params_ext/",
+      "text": "receiver_transport_params_ext receiver_transport_params_ext receiver_transport_params_ext - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver_transport_params_ext With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "receiver_transport_params_usb",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/receiver_transport_params_usb/",
+      "text": "receiver_transport_params_usb receiver_transport_params_usb receiver_transport_params_usb - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content receiver_transport_params_usb With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender_transport_constraints_usb",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/sender_transport_constraints_usb/",
+      "text": "sender_transport_constraints_usb sender_transport_constraints_usb sender_transport_constraints_usb - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender_transport_constraints_usb With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender_transport_params_ext",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/sender_transport_params_ext/",
+      "text": "sender_transport_params_ext sender_transport_params_ext sender_transport_params_ext - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender_transport_params_ext With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    },
+    {
+      "title": "sender_transport_params_usb",
+      "url": "https://specs.amwa.tv/new/bcp-007-02/latest/schemas/sender_transport_params_usb/",
+      "text": "sender_transport_params_usb sender_transport_params_usb sender_transport_params_usb - [Work In Progress] AMWA BCP-007-02: NMOS Support for IPMX/USB Skip to content sender_transport_params_usb With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-007-02"
+    }
+  ]
+}
