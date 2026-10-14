@@ -1,0 +1,29 @@
+{
+    "sender_id": "00000000-0202-4000-ab00-4d5458005079",
+    "master_enable": true,
+    "activation": {
+        "mode": "activate_immediate",
+        "requested_time": null,
+        "activation_time": "1755192060:38206854"
+    },
+    "transport_file": {
+        "data": "v=0\r\no=- 1755191540 1755191540 IN IP4 192.168.0.1\r\ns=Device [MTX05079] - Net Stream 1 USB 0\r\nt=0 0\r\nm=application 27502 TCP usb\r\nc=IN IP4 192.168.0.1\r\na=ts-refclk:ptp=IEEE1588-2008:00-00-00-00-00-00-00-00:00\r\na=mediaclk:sender\r\na=privacy:protocol=USB_KV; mode=AES-128-CTR_CMAC-64-AAD; iv=684827cdac91c077; key_generator=49e39cd721fbf2e5b46af3c872ef4a20; key_version=765d8a2c; key_id=0001020304050607\r\na=setup:passive\r\n",
+        "type": "application/sdp"
+    },
+    "transport_params": [
+        {
+            "source_ip": "192.168.0.1",
+            "source_port": 27502,
+            "interface_ip": "192.168.0.1",
+            "ext_privacy_protocol": "USB_KV",
+            "ext_privacy_mode": "AES-128-CTR_CMAC-64-AAD",
+            "ext_privacy_iv": "684827cdac91c077",
+            "ext_privacy_key_generator": "49e39cd721fbf2e5b46af3c872ef4a20",
+            "ext_privacy_key_id": "0001020304050607",
+            "ext_privacy_key_version": "765d8a2c",
+            "ext_privacy_ecdh_sender_public_key": "00",
+            "ext_privacy_ecdh_receiver_public_key": "1c58d64987f3dc98e8c9c8b6b7258b0dae57a2d166fc267748e64ca131d19fe4",
+            "ext_privacy_ecdh_curve": "25519"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "id": "00000000-0300-4000-ab00-4d5458005079",
+    "version": "1755189333:995180494",
+    "label": "Net Stream 0 USB 0",
+    "description": "This is the Net Stream 0 USB 0",
+    "tags": {
+        "urn:x-nmos:tag:grouphint/v1.0": [
+            "USB 0:DATA 0"
+        ]
+    },
+    "transport": "urn:x-nmos:transport:usb",
+    "device_id": "00000000-0100-4000-ab00-4d5458005079",
+    "interface_bindings": [
+        "eth0"
+    ],
+    "subscription": {
+        "sender_id": "00000000-0202-4000-ab00-4d5458005079",
+        "active": true
+    },
+    "format": "urn:x-nmos:format:data",
+    "caps": {
+        "media_types": [
+            "application/usb"
+        ],
+        "version": "1755189333:995157015",
+        "constraint_sets": [
+            {
+                "urn:x-nmos:cap:meta:label": "Native Data constraints",
+                "urn:x-nmos:cap:meta:enabled": true,
+                "urn:x-nmos:cap:meta:preference": 100,
+                "urn:x-nmos:cap:format:media_type": {
+                    "enum": [
+                        "application/usb"
+                    ]
+                },
+                "urn:x-nmos:cap:transport:usb_class": {
+                    "enum": [
+                        3
+                    ]
+                },
+                "urn:x-nmos:cap:transport:privacy": {
+                    "enum": [
+                        true
+                    ]
+                }
+            }
+        ]
+    }
+}

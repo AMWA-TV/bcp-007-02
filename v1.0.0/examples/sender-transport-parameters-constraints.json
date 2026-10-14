@@ -1,0 +1,65 @@
+[
+    {
+        "ext_privacy_ecdh_curve": {
+            "enum": [
+                "25519",
+                "secp256r1"
+            ]
+        },
+        "ext_privacy_ecdh_receiver_public_key": {},
+        "ext_privacy_ecdh_sender_public_key": {
+            "description": "read-only",
+            "enum": [
+                "17efd3765ef00ce47f93d5627f544078c3fe639377e00c9051c67ee9bff4681f"
+            ]
+        },
+        "ext_privacy_iv": {
+            "description": "read-only",
+            "enum": [
+                "684827cdac91c077"
+            ]
+        },
+        "ext_privacy_key_generator": {
+            "description": "read-only",
+            "enum": [
+                "49e39cd721fbf2e5b46af3c872ef4a20"
+            ]
+        },
+        "ext_privacy_key_id": {
+            "description": "read-only",
+            "enum": [
+                "0001020304050607"
+            ]
+        },
+        "ext_privacy_key_version": {
+            "description": "read-only",
+            "enum": [
+                "765d8a2c"
+            ]
+        },
+        "ext_privacy_mode": {
+            "enum": [
+                "AES-128-CTR_CMAC-64-AAD",
+                "ECDH_AES-128-CTR_CMAC-64-AAD",
+                "AES-256-CTR_CMAC-64-AAD",
+                "ECDH_AES-256-CTR_CMAC-64-AAD"
+            ]
+        },
+        "ext_privacy_protocol": {
+            "enum": [
+                "USB",
+                "USB_KV"
+            ]
+        },
+        "source_ip": {
+            "enum": [
+                "192.168.0.1"
+            ]
+        },
+        "source_port": {
+            "enum": [
+                27502
+            ]
+        }
+    }
+]
